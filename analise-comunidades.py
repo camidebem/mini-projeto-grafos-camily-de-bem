@@ -16,19 +16,19 @@ edges_df = pd.read_csv(edges_file_path, header=None,
 influence_count = pd.concat(
     [edges_df['source'], edges_df['target']]).value_counts()
 
-# Obtenção das 10 páginas mais influentes
+# Obtenção das 10 páginas com maior número de likes
 top_10_influencers = influence_count.head(10)
 
 # Obtendo os nomes das páginas correspondentes aos IDs
 top_10_names = nodes_df.set_index(
     'new_id').loc[top_10_influencers.index]['name']
 
-# Plotando o gráfico de barras para as 10 páginas mais influentes
+# Plotando o gráfico de barras para as 10 páginas com mais likes
 plt.figure(figsize=(15, 8))
 
 plt.subplot(2, 2, 1)
 top_10_influencers.plot(kind='bar', color='skyblue')
-plt.title('Top 10 Páginas Mais Influentes no Meio Culinário')
+plt.title('Top 10 Páginas Com Maior Número de Likes')
 plt.xlabel('ID da Página')
 plt.ylabel('Número de Conexões')
 plt.xticks(rotation=45)
