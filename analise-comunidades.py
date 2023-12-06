@@ -118,4 +118,4 @@ plt.axis('off')
 plt.title('Informações das Páginas Removidas por Ordem de Remoção')
 
 plt.tight_layout()
-plt.savefig('graphs.pdf'format='pdf')
+plt.savefig('graphs.pdf',format='pdf')
