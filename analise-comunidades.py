@@ -40,7 +40,7 @@ plt.table(cellText=top_10_names.reset_index().values,
           cellLoc='center',
           loc='center')
 plt.axis('off')
-plt.title('Nomes das Páginas Correspondentes ao Top 100')
+plt.title('Nomes das Páginas Correspondentes ao Top 10')
 
 # Criação do grafo não direcionado a partir das arestas
 G = nx.from_pandas_edgelist(
