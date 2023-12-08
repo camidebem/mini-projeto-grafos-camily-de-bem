@@ -2,13 +2,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import networkx as nx
 import community
+import sys
 
 # Lendo os vértices do arquivo
-nodes_file_path = 'fb-pages-food.nodes'
+nodes_file_path = sys.argv[1]
 nodes_df = pd.read_csv(nodes_file_path)
 
 # Lendo os arestas do arquivo
-edges_file_path = 'fb-pages-food.edges'
+edges_file_path = sys.argv[2]
 edges_df = pd.read_csv(edges_file_path, header=None,
                        names=['source', 'target'])
 
@@ -75,8 +76,6 @@ bridge_pages = nodes_df.sort_values(
     by='betweenness_centrality', ascending=False).head(5)
 
 # Avaliação da resiliência da rede
-
-
 def evaluate_resilience(graph, nodes_to_remove):
     connected_components_sizes = []
     removed_nodes_list = []  # Lista para armazenar os nós removidos em cada etapa
